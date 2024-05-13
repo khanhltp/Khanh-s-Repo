@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+
+<body>
+    <style>
+        #main {
+            background-color: rgb(221, 221, 221);
+            width: 100%;
+            margin: auto;
+            font-family: sans-serif;
+            padding-bottom: 200px;
+            padding-top: 300px;
+        }
+        #content {
+            display: flex;
+            margin: auto;
+            width: 60%;
+        }
+        #facebook {
+            width: 60%;
+        }
+        
+        #box {
+            width: 40%;
+            background-color: white;
+            border-radius: 5px;
+        }
+        input {
+            box-sizing: border-box;
+            margin: 16px;
+            margin-bottom: 0px;
+            padding: 15px;
+            width: 90%;
+            border-color: rgb(221, 221, 221);
+            /* border: solid; */
+            border-radius: 5px;
+        }
+    </style>
+    <div id=main>
+        <div id="content">
+            <div id= "facebook">
+                <div>
+                    <h1 style="color: #027bff; font-size: 50px; margin-bottom: 20px;">facebook</h1>
+                    <p style="font-size: 25px; margin-top: 10px; padding-right: 16px;" >Facebook helps you connect and share with the people in your life.</p>
+                </div>
+            </div>
+            <div id = box>
+                <div>
+                    <input type="text" name="username" id="username" placeholder="Email address or phone number" style="font-size: 15px">
+                </div>
+                <div>
+                    <input type="password" name="password" id="password" placeholder="Password" style="font-size: 15px">
+                </div>
+                <div>
+                    <input type="submit;" style="background-color: #027bff; color: white; font-weight: bold; font-size: 15px;
+                    border: none; text-align: center;" value="Log in">
+                </div>
+                <div style="text-align: center; color: #027bff; font-weight: bold; margin: 16px;">
+                    <a
+                        href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0">Forgotten
+                        password?</a>
+                </div>
+                <div style="margin: auto; text-align: center;">
+                    <input type="submit" style="background-color: #43b72a ; color: white; font-size: 15px; font-weight: bold; 
+                    border: none; text-align: center; width: 50%;"
+                    value="Create new account">
+                </div>
+                <div>
+                    <p  style="text-align: center;"> <span style="font-weight: bold;">Create a Page</span> for a celebrity, brand or business.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

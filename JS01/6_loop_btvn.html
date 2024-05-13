@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript loop</title>
+</head>
+<body>
+    <script>
+        // // Bai 1: In các số từ 1 đến 10
+        // for (let i = 0; i < 11; i++) {
+        //     console.log(i)
+        // }
+
+        // // Bai 2: In các số chẵn từ 2 đến 20
+        // for (let i = 2; i < 21; i++) {
+        //     if ( i % 2 == 0) {
+        //         console.log(i)
+        //     }
+        // }
+
+        // // Bai 3: In các số từ 1 đến 5 bằng vòng lặp do while
+        // let i = 1;
+        // do {
+        //     console.log(i);
+        //     i++;
+        // } while (i < 6)
+
+        // // Bai 4: In bang cuu chuong
+        // for (let i = 1; i <= 10; i++) {
+        //     for (let j = 1; j <= 10; j++) {
+        //         console.log(i + " x " + j +" = " + i*j)
+        //     }
+        // }
+
+        // // Bai 5: In một tam giác vuông đơn giản
+        // let n = 6
+        // for (let i = 0; i < n; i++) {
+        //     let row = "";
+        //     for (let j = 0; j < i; j++) {
+        //         row += "*"
+        //     }
+        //     console.log(row)
+        // }
+
+        // // Bài 6: Kiểm tra một số có phải là số nguyên tố
+
+        // console.log("1 là số nguyên tố")
+        // console.log("2 là số nguyên tố")
+        // console.log("3 là số nguyên tố")
+        
+        // for (let i = 4; i < 101; i++) {
+        //     let isPrime = true;
+        //     for (let j = 2; j < i; j++) {
+        //         if ( i % j == 0 ) {
+        //             isPrime = false;
+        //             break;  //sau khi số đã chia hết cho j lần đầu rồi thì không cần chạy hết vòng lặp nữa break
+        //         }
+        //     }
+        //     if (isPrime) {  //if (isPrime) nghĩa là if (isPrime = true)
+        //         console.log(i + " là số nguyên tố");
+        //     }
+        // }
+
+
+        // // Bài 7: In các số nguyên tố từ 1 đến 100:
+        // console.log("1 là số nguyên tố")
+        // console.log("2 là số nguyên tố")
+        // console.log("3 là số nguyên tố")
+        
+        // for (let i = 4; i < 101; i++) {
+        //     let isPrime = true;
+        //     for (let j = 2; j < i; j++) {
+        //         if ( i % j == 0 ) {
+        //             isPrime = false;
+        //             break;  //sau khi số đã chia hết cho j lần đầu rồi thì không cần chạy hết vòng lặp nữa break
+        //         }
+        //     }
+        //     if (isPrime) {  //if (isPrime) nghĩa là if (isPrime = true)
+        //         console.log(i);
+        //     }
+        // }
+
+        // // Bài 8: Tính tổng các số chia hết cho 3 hoặc 5 từ 1 đến 100
+        // let sum = 0
+        // for (let i = 1; i < 101; i++) {
+        //     if ( i % 3 == 0 || i % 5 == 0 ) {
+        //         sum = i++
+        //     }
+        // }
+        // console.log(sum)
+
+        // Bài 9: Tìm ước chung lớn nhất (UCLN):
+        let a = 20
+        let b = 16
+        let r = a % b
+       
+
+        while ( a % b !== 0 ) {
+            a = b;
+            b = r;
+            r = a % b;
+        }
+        console.log (b);
+
+       
+
+
+        // Bai 10
+        // let f = 1
+        // let a = 4
+        // for (let i = 1; i <= a; i++) {
+        //     f = f * i 
+        // }
+        // console.log(a + "!=", f)
+
+        // let f = 1
+        // // let a = 4
+        // function factorial(a) {
+        //     if (a <= 0) {
+        //         return;
+        //     }
+        //         f= f*a;
+        //         factorial(a-1);
+        //         console.log(f);
+        // }
+
+        // factorial(5)
+
+        // function factorial(n) {
+        // if (n === 0) return 1;
+        // return n * factorial(n - 1);
+        // }
+    </script>
+</body>
+</html>

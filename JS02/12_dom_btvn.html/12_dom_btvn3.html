@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ẩn/Hiện mục</title>
+</head>
+
+<body>
+    <!-- Cho phép người dùng nhấn vào một nút để ẩn hoặc hiện một ảnh trên trang web. -->
+    <!-- <button id="button">Ẩn ảnh</button> -->
+
+    <input id="button" type="button" value="Ẩn" style="width: 50px;">
+    <br>
+    <img id="img" src="https://image.tienphong.vn/w890/uploads/2018/10/5bc4227e0da29-maxresdefault-600x450.jpg" alt="">
+    
+    <script>
+        let img = document.getElementById("img")
+        let button = document.getElementById("button")
+
+        button.addEventListener('click', function() {
+            if (button.value == "Ẩn") {
+                img.src = ""
+                button.value = "Hiện"
+            } else {
+                img.src = "https://image.tienphong.vn/w890/uploads/2018/10/5bc4227e0da29-maxresdefault-600x450.jpg"
+                button.value = "Ẩn"
+            }
+        })
+
+  
+
+
+
+
+    </script>
+
+</body>
+
+</html>

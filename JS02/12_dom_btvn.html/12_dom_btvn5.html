@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+    </style>
+    <div id = "div">
+        <img id="img" src="https://image.tienphong.vn/w890/uploads/2018/10/5bc4227e0da29-maxresdefault-600x450.jpg" alt="">
+    </div>
+    <script>
+        let img = document.getElementById("img")
+        let div = document.getElementById("div")
+        let i = 0;
+        img.addEventListener("mouseover", function () {
+            if(i % 2 == 0) {
+                img.src = "https://sohanews.sohacdn.com/160588918557773824/2023/4/13/edit-cho-ngao-16813809446811494723689.png";
+                div.style.textAlign = "right";
+            } else {
+                img.src = "https://image.tienphong.vn/w890/uploads/2018/10/5bc4227e0da29-maxresdefault-600x450.jpg";   
+                div.style.textAlign = "left"
+            }
+            i++;
+        });
+
+    </script>
+</body>
+</html>

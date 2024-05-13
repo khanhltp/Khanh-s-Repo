@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Task {
+            constructor(id, title, description, due_date, assigned_to, status) {
+                this.title = title;
+                this.id = id;
+                this.description = description;
+                this.due_date = due_date;
+                this.assigned_to = assigned_to;
+                this.status = status;
+            }
+            updateStatus (status) {
+                this.status = status;
+            }
+
+            showTaskDetail () {
+                console.log(`id: ${this.id}`);
+                console.log(`title: ${this.title}`);
+                console.log(`description: ${this.description}`);
+                console.log(`due_date: ${this.due_date}`);
+                console.log(`assigned_to: ${this.assigned_to}`);
+                console.log(`status: ${this.status}`);
+            }
+        }
+
+        class Member {
+            constructor(id, name, email) {
+                this.id = id;
+                this.name = name;
+                this.email = email;
+            }
+            showMemberDetail () {
+                console.log(`id: ${this.id}`)
+                console.log(`name: ${this.name}`)
+                console.log(`email: ${this.email}`)
+            }
+        }
+
+        class Project {
+            constructor(id, title, description, tasks) {
+                this.id = id;
+                this.title = title;
+                this.description = description;
+                this.tasks = [];
+            }
+            findTaskByID (task_id) {
+                return this.tasks.find((task) => {
+                    return task.id == task_id;
+                })
+            }
+            addTask(task) {
+                    return this.tasks.push(task);
+            }
+            removeTask(task_id) {
+                for (let i in this.tasks) {
+                    if(this.tasks[i].id == task_id) {
+                        this.tasks.splice(i,1);
+                        return this.tasks
+                    }
+                }
+            }
+            showProjectDetail (project_id) {
+                console.log(`id: ${this.id}`);
+                console.log(`title: ${this.title}`);
+                console.log(`description: ${this.description}`);
+                console.log(`tasks: ${this.tasks}`);
+            }
+            sumTaskByStatus(status) {
+                let total = 0;
+                for (let i in this.tasks) {
+                    if (this.tasks[i].status == status) {
+                        total++;
+                    }
+                } console.log(total);
+                
+            }
+        }
+
+        class manageProjectAndMember{
+            constructor (projects, members) {
+                this.projects = [];
+                this.members = [];                
+            }
+            addProject (project) {
+                this.projects.push(project);
+            }
+            addMember (member) {
+                this.members.push(member);
+            }
+            assign (member, task) {
+                task.assign(member);
+            }
+        }
+
+
+        let member01 = new Member(1, "khanhltp", "khanhltp01@gmail.com")
+        let task01 = new Task(1, "Học javascript", "Khóa học javascript tại trung tâm IT Learn", "01/05/2024", member01, "To do")
+        // member01.showMemberDetail()
+        // task01.showTaskDetail()
+        task01.updateStatus("Doing")
+        // task01.showTaskDetail()
+        let project01 = new Project(1, "Project01", "Description of Project01")
+        // project01.showProjectDetail(1)
+        project01.addTask(task01)
+        // project01.showProjectDetail(1)
+        let task02 = new Task(2, "Học javascript", "Khóa học javascript tại trung tâm IT Learn", "01/05/2024", member01, "Done")
+        project01.addTask(task02)
+        let task03 = new Task(3, "Học javascript", "Khóa học javascript tại trung tâm IT Learn", "01/05/2024", member01, "To do")
+        project01.addTask(task03)
+        // project01.findTaskByID(1)
+        // project01.removeTask(1)
+        project01.showProjectDetail(1)
+        project01.sumTaskByStatus("Doing")
+    </script>
+</body>
+</html>

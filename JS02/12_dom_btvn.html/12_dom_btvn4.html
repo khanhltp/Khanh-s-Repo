@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thay đổi ảnh</title>
+</head>
+<body>
+    <input id="button" type="button" value="Đổi ảnh">
+    <br>
+    <img id="img" src="https://image.tienphong.vn/w890/uploads/2018/10/5bc4227e0da29-maxresdefault-600x450.jpg" alt="">
+    <script>
+        let img = document.getElementById("img")
+        let button = document.getElementById("button")
+        let images = [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNkWB-8zTNe97LZ8IaGM5Nhwz_0J6eazsc1CV8tSkJ2g&s",
+        "https://sohanews.sohacdn.com/160588918557773824/2023/4/13/edit-cho-ngao-16813809446811494723689.png",
+        "https://top10tphcm.com/wp-content/uploads/2024/01/hinh-anh-cho-husky-cute-dep-hai-huoc-40.jpg",
+        "https://static.chotot.com/storage/chotot-kinhnghiem/c2c/2019/08/cho-husky-41-1024x768.jpg",
+        "https://blogpet.vn/wp-content/uploads/2021/08/Cho-Husky-ngao-va-nhung-dieu-thu-vi-khong-the-bo-qua.jpg"
+        ]
+        let i = 0;
+        button.addEventListener("click", function () {
+            if(i == images.length) {
+                i = 0;
+                img.src = "https://image.tienphong.vn/w890/uploads/2018/10/5bc4227e0da29-maxresdefault-600x450.jpg";
+            } else {
+                img.src = images[i];
+                i++;
+            }
+            return i
+        });
+       
+        
+       
+        
+        
+            
+    </script>
+
+</body>
+</html>

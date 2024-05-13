@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngày giờ</title>
+</head>
+
+<body>
+    <!-- Hiển thị thông tin ngày giờ: Hiển thị thời gian hiện tại trên trang web và cập nhật nó mỗi giây. -->
+    <style>
+        * {
+            font-family: sans-serif;
+            font-size: 200px;
+            margin: auto;
+        }
+    </style>
+    <table>
+        <tr>
+            <td id="hour" 00></td>
+            <td>:</td>
+            <td id="minute"></td>
+            <td>:</td>
+            <td id="second"></td>
+        </tr>
+    </table>
+    <script>
+        function updateTime() {
+            let hour = document.getElementById("hour");
+            let minute = document.getElementById("minute");
+            let second = document.getElementById("second");
+
+            let currentHours = new Date().getHours();
+            let currentMinutes = new Date().getMinutes();
+            let currentSeconds = new Date().getSeconds();
+
+            if (currentHours < 10) {
+                currentHours = "0" + currentHours;
+            }
+            if (currentMinutes < 10) {
+                currentMinutes = "0" + currentMinutes;
+            }
+            if (currentSeconds < 10) {
+                currentSeconds = "0" + currentSeconds;
+            }
+
+            hour.innerText = currentHours;
+            minute.innerText = currentMinutes;
+            second.innerText = currentSeconds;
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+
+    </script>

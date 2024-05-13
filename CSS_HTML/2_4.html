@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+<body>
+    <form action="xuly.form.php" method="get">
+        <h1>Form Đa Dạng</h1>
+        <table>
+            <tr>
+                <td><label for="fullname">Họ Và Tên</label></td>
+                <td><input type="text" name="fullname" id="fullname"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Mật Khẩu:</label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <td><label for="date_of_birth">Ngày Sinh:</label></td>
+                <td><input type="date" name="date_of_birth" id="date_of_birth"></td>
+            </tr>
+            <tr>
+                <td>Giới Tính:</td>
+                <td><input type="radio" name="gender" id="male" value="Nam">
+                    <label for="male">Nam</label>
+                    <input type="radio" name="gender" id="female" value="Nữ">
+                    <label for="female">Nữ</label>
+                    <input type="radio" name="gender" id="other" value="Khác">
+                    <label for="other">Khác</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="subscribe">Đăng Ký Nhận Tin:</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="subscribe" id="subscribe">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button>Gửi</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

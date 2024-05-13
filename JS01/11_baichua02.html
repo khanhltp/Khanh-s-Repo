@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Tạo lớp Book:
+        // Tạo một lớp Book với các thuộc tính như ISBN, title, author, và status (trạng thái có sẵn hoặc đã được mượn).
+        // Viết phương thức để hiển thị thông tin về sách.
+        class Book {
+            constructor(ISBN, title, author, status) {
+                this.ISBN = ISBN;
+                this.title = title;
+                this.author = author;
+                this.status = status;
+            }
+            validateStatus() {
+                if (this.status !== "Available" && this.status !== "Borrowed") {
+                    throw "Invalid status"
+                }
+            }
+            showBookDetail() {
+                console.log(`ISBN: ${this.ISBN}`);
+                console.log(`title: ${this.title}`);
+                console.log(`author: ${this.author}`);
+                console.log(`status: ${this.status}`);
+            }
+        }
+
+        let book01 = new Book(1, "Javascript", "Brendan Eich", "Available");
+        // book01.validateStatus();
+        // book01.showBookDetail();
+        let book02 = new Book(2, "Sách ABC", "ABC", "Borrowed");
+
+
+        // Tạo lớp Member:
+        // Tạo một lớp Member với các thuộc tính như memberID, name, và books (một mảng chứa các cuốn sách mà họ đã mượn).
+        // Viết phương thức để hiển thị thông tin thành viên và quản lý sách mà họ đã mượn.
+        class Member {
+            constructor(memberID, name, books = []) {
+                this.memberID = memberID;
+                this.name = name;
+                this.books = books;
+            }
+            showMemberDetail() {
+                console.log(`memberID: ${this.memberID}`);
+                console.log(`name: ${this.name}`);
+                console.log(`Các sách đã mượn:`);
+                if (this.books.length == 0) {
+                    console.log("Không có thông tin");
+                } else {
+                    for (let i in this.books) {
+                        console.log(this.books[i]);
+                    }
+                }
+            }
+            addBook(book) {
+                this.books.push(book)
+            }
+        }
+        // let member01 = new Member(1, "khanhltp01", book01)
+        let member01 = new Member(1, "khanhltp01", [book01, book02])
+        // member01.addBook(book02);
+        // member01.addBook(book01);
+        member01.showMemberDetail();
+
+        // Tạo lớp Library:
+        // Tạo lớp Library với các thuộc tính như name, address, và books (một mảng chứa tất cả các cuốn sách trong thư viện).
+        // Viết phương thức để thêm/xóa sách, đăng ký thành viên, và hiển thị thông tin về thư viện.
+        class Library {
+            constructor(name, address, books = []) {
+                this.name = name;
+                this.address = address;
+                this.books = books;
+                this.members = [];
+            }
+            addBook (book) {
+                this.book.push(book);
+            }
+            findBookByID(book_id) {
+                return this.books.find((book) => {
+                    return book.id = book_id;
+                });
+            }
+            deleteBook(book_id) {
+                for (let i in this.books) {
+                    if (this.books[i].id == book_id) {
+                        this.books.splice(i, 1);
+                    }
+                }
+                return this.books;
+            }
+        }
+        // Mô phỏng các tác vụ quản lý thư viện:
+        // Tạo một ứng dụng giao diện người dùng để quản lý thư viện, sách, và thành viên.
+        // Cho phép người dùng thêm/xóa sách, đăng ký thành viên, mượn/trả sách, và hiển thị thông tin về thư viện.
+        ManageLibrary()
+        // Mô phỏng kiểm tra trễ hạn và tính phí:
+        // Tạo một đối tượng LateFeeCalculator để tính phí trễ hạn dựa trên ngày trả sách.
+        // Mô phỏng quản lý danh sách thành viên:
+        // Cho phép thư viện quản lý danh sách thành viên, bao gồm việc thêm/xóa thành viên, tìm kiếm theo tên hoặc số thành viên, và hiển thị thông tin về thành viên.
+        // Mô phỏng thống kê thư viện:
+        // Tạo một đối tượng LibraryStatistics để tính toán thống kê thư viện, bao gồm số lượng sách có sẵn, số lượng sách đã mượn, và danh sách các sách đang mượn.
+
+    </script>
+</body>
+
+</html>

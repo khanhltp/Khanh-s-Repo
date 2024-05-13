@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu mẫu đăng nhập</title>
+</head>
+
+<body>
+    <!-- Tạo một biểu mẫu đăng nhập với các trường thông tin như email, mật khẩu. Yêu cầu hiển thị ra màn hình các trường hợp
+    - Email phải có ký tự @
+    - Mật khẩu tối thiểu 8 ký tự, tối đa 50 ký tự
+    - Nhập đúng email, mật khẩu theo trong một danh sách thì thông báo: "Chào bạn {Tên tài khoản}", nếu không đúng hiển thị đăng nhập thất bại
+    -->
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        table {
+            margin: auto;
+        }
+        button {
+            margin-left: 50%;
+            margin-right: 50%;
+        }
+        p {
+            font-size: small;
+            color: red;
+            font-style: italic;
+            margin-top: 0px;
+            margin-bottom: 0px;
+
+        }
+    </style>
+        <table>
+            <tr>
+                <div>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="text" id="email"></td>
+                </div>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p id = "email_noti"></p></td>
+            </tr>
+            <tr>
+                <div>
+                    <td><label for="password">Mật khẩu</label></td>
+                    <td><input type="password" id="password"></td>
+                </div>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p id = "password_noti"></p></td>
+            </tr>
+        </table>
+        <button id="button">Gửi</button>
+
+    <script>
+        
+        document.getElementById("button").addEventListener('click', function () {  
+            // Email phải có ký tự @
+            let email = document.getElementById("email").value;
+            console.log(email)
+            console.log(email.includes("@"))
+            console.log(typeof(email))
+            let email_noti = document.getElementById("email_noti");
+            email_noti.innerText = "";
+            if(!email.includes("@")) {
+                email_noti.innerText = "*Email phải có ký tự @";
+            } 
+            // Mật khẩu tối thiểu 8 ký tự, tối đa 50 ký tự
+            let password = document.getElementById("password").value;
+            console.log(password.length)
+            let password_noti = document.getElementById("password_noti");
+            password_noti.innerText = "";
+            console.log(password_noti.innerText)
+            if (password.length < 8) {
+                password_noti.innerText = "*Mật khẩu tối thiểu 8 ký tự, tối đa 50 ký tự";
+            } else if (password.length > 50) {
+                password_noti.innerText = "*Mật khẩu tối thiểu 8 ký tự, tối đa 50 ký tự";
+            }
+            // Nhập đúng email, mật khẩu theo trong một danh sách thì thông báo: "Chào bạn {Tên tài khoản}"
+            let emails = ["khanhltp@interits.com", "khanhzm@gmail.com"];
+            let passwords = ["12345678","1234567890"];
+            for (let i in emails) {
+                for (let j in password) {
+                    if (email === emails[i] && password === passwords[j]) {
+                        alert(`Chào bạn ` + email);
+                    } else {
+                        // Nếu không đúng hiển thị đăng nhập thất bại
+                        password_noti.innerText = "Đăng nhập thất bại";
+                    }
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

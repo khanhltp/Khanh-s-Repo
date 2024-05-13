@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        //1. Tìm số lớn nhất và nhỏ nhất trong mảng:
+        arr = [120, 121, 3, 10, 5, 9, 20, 54, 19, 2, 11, 12, 22, 88]
+
+        
+        // function getMax () {
+        //     let max = arr[0]
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] > max) {
+        //             max = arr[i]
+        //         }
+        //     }
+        //     return max
+        // }
+        // 121
+        
+        function getMax () {
+            let max = arr[0]
+            for (let i of arr) {
+                if (arr[i] > max) {
+                    max = arr[i]
+                    console.log(max)
+                }
+            }
+            return max
+        }
+        // 120
+
+        // console.log(getMax(arr))
+
+        function getMin () {
+            let min = arr[0]
+            for (let i of arr) {
+                if (arr[i] < min) {
+                    min = arr[i]
+                }
+            }
+            return min
+        }
+
+        // console.log(getMin(arr))
+
+        // 2. Tính tổng các phần tử trong mảng:
+        function getSum () {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum+=arr[i];
+            }
+            return sum
+        }
+        // console.log(getSum(arr))
+
+        // 3. Tìm các số chẵn và số lẻ:
+        // function getEvenandOdd (arr) {
+        //     let even = [];
+        //     let odd = [];
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] % 2 == 0) {
+        //             even.push(arr[i])
+        //         }
+        //         {odd.push(arr[i])}
+        //     }
+        //     return even
+        //     return odd
+        // }
+        // getEvenandOdd(arr)
+        // console.log(getEvenandOdd(arr))
+
+        function getOdd (arr) {
+            let odd = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 1) {
+                    odd.push(arr[i])
+                }
+            }
+            return odd
+        }
+        // console.log(getOdd(arr))
+
+        function getEven (arr) {
+            let even = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                    even.push(arr[i])
+                }
+            }
+            return even
+        }
+        // console.log(getEven(arr))
+
+        // 4. Kiểm tra tính đối xứng của mảng:
+        let a = [1, 2, 3, 2, 1]
+        let b = [1, 2, 3, 3, 2, 1]
+        let c = [1, 2, 3, 4, 1]
+        let d = [1, 2, 3, 4, 5, 6, 7, 8]
+
+        function check_doi_xung_mang_le (arr) {
+            let doi_xung = true
+            let max_index = (arr.length - 1) / 2
+            for (let i = 0; i < max_index; i++) {
+                if (arr[i] !== arr[arr.length - i - 1]) {
+                    doi_xung = false;
+                    break;
+                }
+            }
+            return doi_xung
+        }
+        // console.log(check_doi_xung_mang_le(c))
+
+        function check_doi_xung_mang_chan (arr) {
+            let doi_xung = true
+            let max_index = (arr.length) / 2
+            for (let i = 0; i < max_index; i++) {
+                if (arr[i] !== arr[arr.length - i - 1]) {
+                    doi_xung = false;
+                    break;
+                }
+            }
+            return doi_xung
+        }
+        // console.log(check_doi_xung_mang_chan(b))
+
+        function check_doi_xung (arr) {
+            if (arr.length % 2 === 0) {
+                check_doi_xung_mang_chan(arr);
+                let doi_xung = check_doi_xung_mang_chan(arr);
+                return doi_xung
+            } else {
+                check_doi_xung_mang_le(arr);
+                let doi_xung = check_doi_xung_mang_le(arr);
+                return doi_xung
+            }
+        }
+        // console.log(check_doi_xung(c))
+        
+        // 5. Xóa phần tử bằng giá trị
+        let old_arr = [11,22,33,55,88,99,44]
+        let del_arr = [11, 33,55,88,77]
+        let new_arr = []
+    
+        function deleteElement (old_arr, del_arr) {
+            for (let i = 0; i < del_arr.length; i++) {
+                for (let j = 0; j < old_arr.length; j++) {
+                    if (del_arr[i] === old_arr[j]) {
+                        old_arr.splice(j,1);
+                        i--;
+                    }
+                }
+            }
+            return old_arr
+        }
+        // console.log(deleteElement(old_arr, del_arr))
+
+        
+    
+        
+        // 6. Sắp xếp một mảng số nguyên theo thứ tự tăng dần và giảm dần
+        arr.sort((a,b) => a-b)
+        console.log(arr)
+
+        arr.sort((a,b) => b-a)
+        console.log(arr)
+        
+        // 7. Tìm các số nguyên tố trong mảng
+        let random_arr = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 33, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 44, 55, 66, 77, 88]
+        let so_nguyen_to = []
+        for (let i = 0; i < random_arr.length; i++) {
+            let isPrime = true;
+            for (let j = 2; j < random_arr[i]; j++) {
+                if ( random_arr[i] % j == 0 ) {
+                    isPrime = false;
+                    break;  //sau khi số đã chia hết cho j lần đầu rồi thì không cần chạy hết vòng lặp nữa break
+                }
+            }
+            if (isPrime) {  //if (isPrime) nghĩa là if (isPrime = true)
+                console.log(random_arr[i], "i")
+                so_nguyen_to.push(random_arr[i])
+            }
+        }
+        console.log(so_nguyen_to, "so nguyen to")
+
+        // 8. Tìm phần tử xuất hiện nhiều nhất trong mảng
+        // ran_arr = [1, 1 , 1, 1, 1, 2, 3, 3, 4, 4, 4]
+        // var max = 1, dem = 0, num = 0;
+        // var getMaxAppearance = (arr) => {
+        //     for (var i = 0; i < arr.length; i++) {
+        //         for (var j = i + 1; j < arr.length; j++) { 
+        //             if (arr[j] === arr[i]) {
+        //                 dem++;
+        //                 if (dem >= max) {
+        //                     max = dem;
+        //                     num = arr[i];
+        //                 }
+        //             }
+        //         }
+        //         dem = 0; // Reset dem sau mỗi lần duyệt một phần tử mới
+        //     }
+        //     return [num, max]; // Trả về số xuất hiện nhiều nhất
+        // }
+        // console.log(getMaxAppearance(ran_arr));
+
+
+            // let count = 0
+            // let max = 0
+            // for (let i = 0; i < ran_arr.length; i++) {
+            //     for (let j = 0; j < ran_arr.length; j++) {
+            //         if (ran_arr[i] == ran_arr[j]) {
+            //             count++
+            //             if (count > max) {
+            //                 max = count
+            //             }
+            //         }
+            //     } console.log(ran_arr[i])
+            // }
+            // console.log(max)
+            
+        // Đếm số lần xuất hiện
+        function count (arr, index) {
+            let count = 0
+            let num = arr[index];
+            for (let i = 0; i < arr.length; i++) {
+                if (num == arr[i]) {
+                    count = count + 1;    
+                }
+            }
+            return count
+        }
+        // console.log(count(ran_arr,0))
+        // console.log(count(ran_arr,1))
+        // console.log(count(ran_arr,2))
+        // console.log(count(ran_arr,3))
+        // console.log(count(ran_arr,4))
+
+        
+        function getMaxAppearance (arr) {
+            let max = count(arr, 0);
+            for (let i = 0; i < arr.length; i++) {
+                let a = count(arr, i);
+                if (a > max) {
+                    max = a;
+                    // console.log(arr[i])
+                }
+            }
+            return max
+        }
+        
+        // console.log(getMaxAppearance(ran_arr))
+
+        // for (let i = 0; i < ran_arr.length; i++) {
+        //     getTotal(ran_arr, i);
+        //     let a = getTotal(ran_arr, 0);
+        //     // console.log(a)
+        //     let b = getTotal(ran_arr, i);
+        //     // console.log(b)
+        //     if (b > a) {
+        //         a = b;
+        //     }
+        // console.log(ran_arr[i], a)
+        // }
+        
+    </script>
+</body>
+</html>

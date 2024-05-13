@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #form {
+            background-color: rgb(221, 221, 221);
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            height: 300px;
+        }
+        #form label {
+            display: block;
+            padding: 6px;
+            padding-left: 0px;
+        }
+
+        #form input, #form select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border-color: rgb(207, 207, 207);
+            border: solid;
+            border-width: 0.5px;
+        }
+
+        .input-group {
+            margin-bottom: 5px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            padding: 16px;
+        }
+    </style>
+    <div id="form">
+        <form action="">
+            <div class="input-group">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Your name...">
+            </div>
+            <div class="input-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Your last name...">
+            </div>
+            <div class="input-group">
+                <label for="country">Country</label>
+                <select name="country" id="country">Country
+                    <option value="Austria">Austria</option>
+                </select>
+            </div>
+            <!-- <input type="submit" value="Try it Yourself>>"> -->
+            <button>Try it Yourself>></button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <style>
+        *{
+            font-family: sans-serif;
+            text-transform: capitalize;
+        }
+        p, input {
+            text-transform: none;
+        }
+        #heading {
+            background-color: #027bff;
+            color: white;
+            font-weight: bold;
+            padding-left: 16px;
+            padding: 30px;
+            width: 100%;
+        }
+
+        #heading tr th{width: 70%; font-size: 30px;text-align: left;}
+        #heading tr td{width: 10%;text-align: center;}
+        div {border: solid  5px; border-radius: 3px; border-color: rgb(194, 194, 194); padding: 16px; 
+            outline-style: solid; outline-color: white;}
+        .content {width: 85%;}
+
+        [type = submit] {color: white; background-color:#027bff; border-radius: 5px; border-color: #027bff; border-style: solid;}
+        ul {padding-left: 16px; list-style-type: none;}
+
+        footer {
+            background-color:#027bff;
+            color: white;
+            text-align: center;
+            padding: 16px;
+        }
+
+ </style>
+    <table id = heading>
+        <tr>
+            <th>Blog của tôi</th>
+            <td>Trang chủ</td>
+            <td>Danh mục</td>
+            <td>Liên hệ</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td class="content">
+                <div>
+                    <h1>Tiêu đề bài viết 1</h1>
+                    <p>Đây là nội dung bài viết 1. Bạn có thể viết bất kỳ điều gì bạn muốn ở đây.</p>
+                </div>
+            </td>
+            <td rowspan="2">
+                <input type="text" id="search" name="search" placeholder="Tìm kiếm..." border-radius="5px">
+                <input type="submit" value="Tìm">
+                <br>
+                <h2 style="padding-left: 16px;">Danh mục</h2>
+                <ul>
+                    <li>Danh mục 1</li>
+                    <li>Danh mục 2</li>
+                    <li>Danh mục 3</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="content">
+                <div>
+                <h1>Tiêu đề bài viết 2</h1>
+                <p>Đây là nội dung bài viết 2. Hãy chia sẻ kiến thức và kinh nghiệm của bạn.</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <footer>© 2023 Tên Của Bạn</footer>
+</body>
+</html>

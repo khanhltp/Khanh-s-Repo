@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object and class</title>
+</head>
+
+<body>
+    <script>
+        // 1. Bài tập: Tạo một lớp đối tượng (Class)
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            showInfo() {
+                console.log(this.name + " is " + this.age + " years old")
+            }
+        }
+
+        let person1 = new Person("Khanh", 20)
+        // console.log(person1.showInfo())
+
+        // Bài tập: Sử dụng lớp đối tượng (Class)
+        // Hãy tạo một lớp đối tượng (class) mới với tên "Book" để mô phỏng thông tin về một cuốn sách. Lớp này nên có các thuộc tính như "title", "author", và "price".
+
+        class Book {
+            constructor(title, author, price) {
+                this.title = title;
+                this.author = author;
+                this.price = price;
+            }
+        }
+
+
+        // Sau đó, tạo một mảng chứa nhiều cuốn sách và thực hiện các thao tác như
+        // in ra danh sách các cuốn sách và tính tổng giá trị của tất cả các cuốn sách.
+
+        let books = []
+        books.push(new Book("title1", "author1", 100000));
+        books.push(new Book("title2", "author2", 200000));
+        books.push(new Book("title3", "author3", 300000));
+        books.push(new Book("title4", "author4", 500000));
+
+
+        for (let i in books) {
+            // console.log(books[i].title);
+        }
+
+
+        let total = 0;
+        for (let i in books) {
+            total += books[i].price;
+        }
+        // console.log(total)
+
+        // Bài tập: Kế thừa và lớp con (Inheritance and Subclasses)
+        // Hãy tạo một lớp đối tượng gọi là "Student" kế thừa từ lớp "Person" trong bài tập 1. Lớp "Student" nên có thêm một thuộc tính là "studentID" và một phương thức để hiển thị thông tin của học sinh.
+        // class Student extends Person {
+        //     constructor(name, age, studentID) {
+        //         super(name, age)
+        //         this.studentID = studentID
+        //     }
+        //     showStudentInfo() {
+        //         console.log(`Name: ${this.name}\nAge: ${this.age}\nStudent ID: ${this.studentID}`
+        //         )
+        //     }
+        // }
+
+        // let khanh = new Student("Khanh", 25, "student01")
+        // console.log(khanh.showStudentInfo())
+
+        // Bài tập: Quản lý Danh bạ (Contact Management)
+        // Hãy xây dựng một ứng dụng quản lý danh bạ sử dụng JavaScript và các lớp đối tượng (class). Ứng dụng này nên có các chức năng sau:
+
+        // Tạo một lớp đối tượng "Contact" để đại diện cho một liên hệ trong danh bạ. Mỗi liên hệ nên có các thuộc tính như "tên" (name), "số điện thoại" (phone), và "địa chỉ" (address).
+        class Contact {
+            constructor(name, phone, address) {
+                this.name = name;
+                this.phone = phone;
+                this.address = address;
+            }
+
+        }
+
+        // Tạo một lớp đối tượng "ContactBook" để quản lý danh bạ. Lớp này nên có các phương thức sau:
+        // Thêm một liên hệ mới vào danh bạ.
+        // Xoá một liên hệ từ danh bạ dựa trên tên hoặc số điện thoại.
+        // Hiển thị danh sách tất cả các liên hệ trong danh bạ.
+
+        class ContactBook {
+            constructor() {
+                // Tạo mảng 
+                this.contacts = [];
+            }
+
+            addContact(contact) {
+                // Khởi tạo object (dùng class Contact)
+                // let contact = new Contact(name, phone, address)
+                // Thêm object vừa khởi tạo vào mảng
+                this.contacts.push(contact)
+            }
+            deleteContact(contact) {
+                for (let i in this.contacts) {
+                    if (this.contacts[i] == contact) {
+                        this.contacts.splice([i], 1)
+                    }
+                }
+
+            }
+            showContactBook() {
+                for (let i in this.contacts) {
+                    console.log(this.contacts[i])
+                }
+            }
+        }
+        let contact01 = new Contact("name1", "0395392408", "address1")
+        let contact02 = new Contact("name2", "0395392409", "address2")
+        let contact03 = new Contact("name3", "0395392410", "address3")
+        let contact_book = new ContactBook
+        // contact_book.showContactBook()
+        contact_book.addContact(contact01)
+        contact_book.addContact(contact02)
+        contact_book.addContact(contact03)
+        // contact_book.showContactBook()
+        contact_book.deleteContact(contact01)
+        contact_book.showContactBook()
+        
+        // contact_book.addContact("name1", "0395392408", "address1")
+        // console.log(contact_book)
+        // contact_book.addContact("name2", "0395392409", "address2")
+        // console.log(contact_book)
+        // contact_book.addContact("name3", "0395392410", "address3")
+        // console.log(contact_book)
+        // contact_book.deleteContact("name1")
+        // console.log(contact_book)
+        // contact_book.deleteContact("0395392409")
+        // console.log(contact_book)
+        // contact_book.deleteContact("address3")
+        // console.log(contact_book)
+        // contact_book.showContactBook()
+
+        // Bài tập: Quản lý Tài Khoản Ngân Hàng
+        // Tạo một class đại diện cho tài khoản ngân hàng với tính năng gửi tiền, rút tiền và kiểm tra số dư. Cụ thể các chức năng
+        // Thêm tài khoản ngân hàng
+        // Đăng nhập
+        // Kiểm tra số dư
+        // Nộp tiền
+        // Chuyển tiền
+        // Rút tiền
+
+        class Bank {
+            constructor(accounts = []) {
+                this.accounts = accounts;
+            }
+            login(user_name, pass_word) {
+                for (let i of accounts) {
+                    if (i.pass_word == pass_word && i.email == user_name) {
+                        return i
+                    }
+                }
+                console.log("Login failed");
+            }
+            addAccount(id, name, phone, email, pass_word, balance) {
+                this.accounts.push(new Account(id, name, phone, email, pass_word, balance));
+            }
+
+            findAccountByID(id) {
+                this.accounts.find((account) => {
+                    return account.id == id
+                });
+            }
+
+            showAccountInfo (id) {
+                let account = this.accounts.findAccountByID(id);
+                console.log(`${this.id}`);
+                console.log(`${this.name}`);
+                console.log(`${this.phone}`);
+                console.log(`${this.email}`);
+                console.log(`${this.balance}`);
+                console.log(`${this.pass_word}`);
+            }
+
+            withdraw(id, withdraw_amount) {
+                let account = this.findAccountByID(id);
+                if (withdraw_amount <= account.getBalance()) {
+                    account.balance -= account;
+                    return;
+                }
+                console.log("Số dư không đủ")
+            }
+
+            deposit(id, deposit_amount) {
+                let account = this.findAccountByID(id);
+                account.balance += deposit_amount;
+            }
+
+            transfer (from_account_id, to_account_id, transfer_amount) {
+                let from_acoount = this.findAccountByID(from_account_id);
+                let to_account = this.findAccountByID(to_account_id);
+                if(transfer_amount <= from_acoount.getBalance()) {
+                    from_acoount.balance -= transfer_amount;
+                    to_account.balance -= transfer_amount;
+                    return;
+                }
+                console.log("Số dư không đủ")
+            }
+
+            logout
+        }
+
+        class Account {
+            constructor (id, name, phone, email, pass_word, balance) {
+                this.id = id;
+                this.name = name;
+                this.phone = phone;
+                this.email = email;
+                this.balance = balance;
+                this.pass_word = pass_word;
+            }
+
+            getBalance() {
+                return this.balance
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        class BankAccount {
+            constructor(user_name, pass_word) {
+                this.user_name = user_name;
+                this.pass_word = pass_word;
+                // mặc định số dư ban đầu là 50k
+                this.balance = 50.000;
+            }
+            register() {
+                console.log(`Đăng ký thành công\nTên đăng nhập: ${this.user_name}\nMật khẩu: ${this.pass_word} `);
+            }
+            login(user_name, pass_word) {
+                let logged_in = true;
+                if (user_name == this.user_name && pass_word == this.pass_word) {
+                    console.log("Đăng nhập thành công");
+                    logged_in = true;
+                } else {
+                    console.log("Tên đăng nhập hoặc mật khẩu không đúng");
+                    logged_in = false;
+                }
+                return logged_in
+            }
+            check_balance() {
+                console.log(`Số dư tài khoản ${this.user_name}: ${this.balance}.000 VNĐ`);
+            }
+            deposit(deposit_amount) {
+                this.balance += deposit_amount;
+                console.log(`Nạp tiền thành công: +${deposit_amount}.000 VNĐ\nSố dư hiện tại: ${this.balance}.000 VNĐ`);
+            }
+            transfer(transfer_amount) {
+                if (this.balance >= transfer_amount) {
+                    this.balance -= transfer_amount;
+                    console.log(`Chuyển tiền thành công: -${transfer_amount}.000 VNĐ\nSố dư hiện tại: ${this.balance}.000 VNĐ`);
+                } else {
+                    console.log("Số dư tài khoản không đủ");
+                }
+            }
+            withdraw(withdraw_amount) {
+                if (withdraw_amount <= this.balance) {
+                    this.balance -= withdraw_amount;
+                    console.log(`Rút tiền thành công: -${withdraw_amount}.000 VNĐ\nSố dư hiện tại: ${this.balance}.000 VNĐ`);
+                } else {
+                    console.log("Số dư tài khoản không đủ")
+                }
+            }
+            auto_check(user_name, pass_word, deposit_amount, transfer_amount, withdraw_amount) {
+                this.register()
+                if (this.login(user_name, pass_word) == true) {
+                    this.check_balance();
+                    this.deposit(deposit_amount);
+                    this.transfer(transfer_amount);
+                    this.withdraw(withdraw_amount);
+                }
+            }
+        }
+
+        let account = new BankAccount("khanhltp", "abc123")
+        // account.auto_check("khanhltp", "abc123", 900, 500, 400)
+
+        // Bài tập: Quản lý một Trung tâm Đào tạo
+        // Hãy xây dựng một ứng dụng quản lý một trung tâm đào tạo sử dụng JavaScript với nhiều lớp đối tượng khác nhau. Ứng dụng này nên có các chức năng sau:
+        // Tạo lớp đối tượng "Student" để đại diện cho một học viên. Mỗi học viên nên có các thuộc tính như "tên" (name), "tuổi" (age), "email", và một danh sách các khóa học mà họ đã đăng ký.
+        class Student {
+            constructor(name, age, email) {
+                this.name = name;
+                this.age = age;
+                this.email = email;
+                this.course_list = [];
+            }
+        }
+
+        // Tạo lớp đối tượng "Course" để đại diện cho một khóa học. Mỗi khóa học nên có các thuộc tính như "tên" (name), "mã khóa học" (courseCode), "giảng viên" (instructor), "số tiết học", và "học phí".
+        class Course {
+            constructor(name, course_code, instructor, number_of_lession, fee) {
+                this.name = name;
+                this.course_code = course_code;
+                this.instructor = instructor;
+                this.number_of_lession = number_of_lession;
+                this.fee = fee;
+                this.student_list = [];
+            }
+        }
+
+        // class CourseRegistration {
+        //     constructor(course_id, student_id, register_at)
+        // }
+
+        // Tạo lớp đối tượng "TrainingCenter" để quản lý trung tâm đào tạo. Lớp này nên có các phương thức sau:
+        // Thêm học viên mới vào danh sách.
+        // Thêm khóa học mới vào danh sách.
+        // Đăng ký học viên vào khóa học.
+        // Hiển thị thông tin chi tiết về một học viên, bao gồm các khóa học họ đã đăng ký.
+        // Hiển thị thông tin chi tiết về một khóa học, bao gồm danh sách học viên tham gia.
+        
+        class TrainingCenter {
+            constructor(students, courses) {
+                this.students = [];
+                this.courses = [];
+            }
+            addStudent(student) {
+                this.students.push(student);
+                console.log("Thêm học viên mới vào danh sách thành công", this.students)
+            }
+            addCourse(course) {
+                this.courses.push(course);
+                console.log("Thêm khóa học mới vào danh sách thành công", this.courses)
+            }
+            addStudentToCourse(student, course) {
+                // Check học viên này đã tồn tại trong danh sách học viên chưa
+                for (let i in this.students) {
+                    if (this.students[i] == student) {
+                        // Check khóa học này đã tồn tại trong danh sách khóa học chưa
+                        for (let j in this.courses) {
+                            if (this.courses[j] == course) {
+                                // Thêm khóa học vào mảng các khóa học đã đăng ký của học viên
+                                this.courses[j].student_list.push(this.students[i]);
+                                // Thêm học viên vào mảng danh sách học viên của khóa học
+                                this.students[i].course_list.push(this.courses[j]);
+                                console.log(`Đăng ký thành công`);
+                            }
+                        }
+                    } else {
+                        console.log("Không tìm thấy thông tin học viên hoặc khóa học")
+                    }
+                } 
+            }
+            showStudentDetail (student) {
+                for (let i = 0; i < this.students.length; i++) {
+                    if(this.students[i] == student) {
+                        console.log(this.students[i]);
+                    } else {
+                    console.log("Không tìm thấy thông tin học viên")
+                }
+                }
+            }
+           
+            showCourseDetail (course) {
+                for (let i in this.courses) {
+                    if (this.courses[i] == course) {
+                        console.log(this.courses[i]);
+                    } else {
+                    console.log("Không tìm thấy thông tin khóa học")
+                    }
+                }
+            }
+            auto_check (student, course) {
+                this.addStudent(student);
+                this.addCourse(course);
+                this.addStudentToCourse(student, course);
+                this.showStudentDetail(student);
+                this.showCourseDetail(course);
+            }
+            
+        }
+        
+        let khanhltp01 = new Student ("khanhltp01", 25, "khanh@gmail.com")
+        let course01 = new Course ("Javascript", "course01", "Khanhltp", "20", "500")
+        let itlearn = new TrainingCenter
+        itlearn.auto_check(khanhltp01, course01)
+
+        // itlearn.addStudent(new Student ("khanhltp01", 25, "khanh@gmail.com"))
+        // itlearn.addCourse(course01)
+        // itlearn.addStudentToCourse(khanhltp01, course02)
+
+        // Tách danh sách khóa học thành class mới  
+        // Thêm ID cho class student và course
+        
+        
+
+
+       
+
+
+
+    </script>
+</body>
+
+</html>

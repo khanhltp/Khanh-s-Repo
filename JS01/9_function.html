@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name: "Khanh",
+            age: 20,
+            scores: [9, 10, 9],
+            greet: function () {
+                console.log(`Hello, name ${this.name}. age ${this.age}.`);
+            },
+            getAvg: function () {
+                let sum = 0;
+                for (let i = 0; i < this.scores.length; i++) {
+                    sum += this.scores[i];
+                }
+                return sum / this.scores.length;
+            }
+        };
+        // console.log(`Avg score of ${person.name} is ${person.getAvg}`)
+
+        const sum = (a, b) => a + b
+        // console.log(sum(35, 20))
+        
+        // 1. Tạo mảng số chia hết cho 3 và chia hết cho 5
+        // Dùng for
+        function tinh_so_chia_het_cho_3_va_5 (n) {
+            let arr = []
+            for (let i = 1; arr.length < n; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    arr.push(i)
+                }
+            }
+            return arr
+        }
+        // console.log(tinh_so_chia_het_cho_3_va_5(2))
+
+        //Dùng while
+        let chia_het_cho_3_va_5 = x => x % 3 == 0 && x % 5 == 0;
+        let get_valid_array = (n) => {
+            let valid_array = [];
+            let i = 1;
+            while (valid_array.length < n) {
+                if (chia_het_cho_3_va_5 (i)) {
+                    valid_array.push(i);
+                }
+                i++;
+            }
+            return valid_array;
+        }
+        // console.log(get_valid_array(2))
+
+        // 2. Tạo mảng số nguyên tố
+        let checkPrime = n => {
+            for (let i = 2; i < n; i++) {
+                if ( n % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        let getPrime = n => {
+            let valid_array = [];
+            let i = 2;
+            while (valid_array.length < n) {
+                if (checkPrime(i)) {
+                valid_array.push(i)
+                }
+                i++
+            }
+            return valid_array
+        }
+        // console.log(getPrime(10))
+       
+       // 3. Tìm số Fibonacci thứ n
+
+       
+        let getFibonacci = (n) => {
+            if (n < 0) {
+                return "Invalid value"
+            } else if (n === 1) {
+                return 0
+            } else if (n === 2) {
+                return 1
+            } else if (n > 2) {
+                n = getFibonacci(n - 1) + getFibonacci(n - 2)
+            }
+            return n;
+        }
+        // console.log(getFibonacci(7 ))
+
+        
+
+        // Chia lấy dư cho 10 -> lấy số cuối - chia lấy phần nguyên của số đấy cho 10
+        // numbers = []
+        // current = 132;  
+        // Chia lấy dư push number: 132 % 10 = 2 => push vào number
+        // Chia lấy phần nguyên - Chia lấy dư push number:
+        // 132 chia 10 chia lấy phần nguyên -> lấy ra 13; 13 % 10 = 3 => push vào mảng
+        // current = 13; 13 chia lấy dư cho 10 = 1
+        // dk dừng: < 10
+        // sum cái mảng numbers cuối cùng
+
+        // ATM: chia lấy phần nguyên 
+        // chia lấy dư cho 100 của 275 => 75. lấy 75 chia lấy nguyên cho 50 
+        // lấy 25 chia lấy phần nguyeen của 20
+        console.log(Math.floor(275/100))
+        console.log(Math.floor(75/50))
+        console.log(Math.floor(5/1))
+
+
+        
+        
+        // 4. Tính tổng các chữ số trong một số
+
+        // function getTotal2 (n) {
+        //     let total = 0;
+        //     let i = 0;
+        //     do {
+        //         total += n % 10
+        //         n = Math.floor(n / 10);
+        //         i++
+        //     } while (n > 0);
+        //     return total
+        // }
+        // console.log(getTotal2(212))
+
+        // Dùng vòng lặp
+        function getTotal1 (n) {
+            let total = 0
+            for (let i = 0; n > 0; i++) {
+                // Chia lấy phần dư và cộng vào tổng
+                total += n % 10
+                // Lấy phần nguyên
+                n = Math.floor(n / 10);
+            }
+
+            return total
+        }
+        // console.log(getTotal1(212))
+        
+        // Dùng số - > chuỗi -> mảng
+        function getTotal2 (n) {
+            let arr = n.toString().split("")
+            let total = 0
+            for (let i = 0; i < arr.length; i++) {
+                total += parseInt(arr[i]);
+            }
+            return total
+        }
+
+        // console.log(getTotal2(121))
+
+
+        // 5. Tìm số lẻ trong mảng
+        arr = [120, 121, 3, 10, 5, 9, 20, 54, 19, 2, 11, 12, 22, 88]
+        function getOdd (arr) {
+            let odd_arr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 1) {
+                    odd_arr.push(arr[i])
+                }
+            }
+            return odd_arr
+        }
+        // console.log(getOdd(arr))
+
+        // 6. Thập phân sang hệ nhị phân
+        // console.log(0.25%2)
+        function toBinary (n) {
+            arr = []
+            for (let i = 0; Math.floor(n / 2) >= 0; i++) { 
+                arr.unshift(n % 2)
+                n = Math.floor(n / 2)
+                if (Math.floor(n / 2) === 0) {
+                    arr.unshift(n % 2)
+                    break;
+                }
+            }
+            return arr.join("")
+        }
+
+        // console.log(toBinary (5))
+
+        // 6. Đếm số các chữ số 0 trong một số
+        // function count0 (n) {
+        //     let arr = n.toString().split("")
+        //     let count = 0
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] == 0) {
+        //             count++;
+        //         }
+        //     }
+        //     return count
+        // }
+
+        // console.log(count0(100))
+
+        function count0 (n) {
+            let count = 0
+            for (let i = 0; n > 0; i++) {
+                // Phần dư = 0 thì đếm
+                if (n % 10 == 0) {
+                    count++
+                }
+                // Lấy phần nguyên
+                n = Math.floor(n / 10);
+            }
+            return count
+        }
+
+        // console.log(count0(100))
+      
+            // Bài tập ATM:
+            // Tổng tiền / mệnh giá => lấy phần nguyên => số tờ tiền tương ứng mệnh giá
+            // Tổng tiền - (số tờ x mệnh giá)
+            
+            function rut_tien (so_tien) {
+                arr = [100, 50, 20, 10, 5, 1]
+                let so_to_tien = 0
+                for (let i = 0; so_tien > 0; i++) {
+                    let menh_gia = arr[i]
+                    so_to_tien = Math.floor(so_tien / menh_gia)
+                    so_tien = so_tien - so_to_tien * menh_gia
+                    let output = so_to_tien + " tờ " + menh_gia
+                    console.log(output)
+                }
+            }
+            // console.log(rut_tien(7689))
+
+            
+           
+
+    </script>
+</body>
+</html>

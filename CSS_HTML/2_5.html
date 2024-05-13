@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+<body>
+    <style>
+        [name = fullname] {
+            color: red;            
+        }
+        [name = email] {
+            color: blue;
+        }
+        [name = password] {
+            color: blueviolet;
+        }
+        [value = male] {
+            color: yellow;
+        }
+        [value = female] {
+            color: yellowgreen;
+        }
+        [label = email] {
+            color: chocolate;
+        }
+        [label = introduction] {
+            color: chocolate;
+        }
+        []
+    </style>
+<form action="xuly.form.php" method="get">
+    <h1>Biểu Mẫu Kết Hợp Bảng</h1>
+    <table>
+        <td><label for="fullname">Họ Và Tên</label></td>
+        <td><input type="text" name="fullname" id="fullname"></td>
+    </tr>
+    <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="email" name="email" id="email"></td>
+    </tr>
+    <tr>
+        <td><label for="password">Mật Khẩu:</label></td>
+        <td><input type="password" name="password" id="password"></td>
+    </tr>
+    <tr>
+        <td><label for="gender">Giới Tính:</label></td>
+        <td><select name="gender" id="gender">
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+            <option value="other">Khác</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td><label for="introduction">Giới Thiệu Bản Thân:</label></td>
+        <td><textarea name="introduction" id="introduction" cols="25" rows="5"></textarea></td>
+    </tr>
+    <tr>
+        <td><label for="avatar">Ảnh Đại Diện</label></td>
+        <td><input type="file" name="avatar" id="avatar"></td>
+    </tr>
+    <tr>
+        <td>Sở Thích:</td>
+        <td>
+            <input type="checkbox" name="hobby" id="read_book" value="read_book">
+            <label for="read_book">Đọc sách</label>
+            <input type="checkbox" name="hobby" id="travel" value="travel">
+            <label for="travel">Du lịch</label>
+            <input type="checkbox" name="hobby" id="music" value="music">
+            <label for="music">Âm nhạc</label>
+    </tr>
+    <tr>
+        <td><label for="age">Tuổi:</label></td>
+        <td><input type="number" name="age" id="age" size="1"></td>
+    </tr>
+    <tr><td><button>Gủi</button></td></tr>
+    </table>
+</form>
+</body>
+</html>

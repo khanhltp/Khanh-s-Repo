@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTVN Buổi 5</title>
+</head>
+<body>
+    <script>
+        // Bai 1
+        // let num = -100
+        // if (num === 0) {
+        //     console.log(num + " là số 0")
+        // } else if (num > 0) {
+        //     console.log(num + " là số dương")
+        // } else {
+        //     console.log(num + " là số âm")
+        // }
+
+        // Bai 2
+        // let num = 12
+        // if (num > 5 && num % 3 == 0 && num % 2 == 0) {
+        //     console.log("Số chia hết cho 2 và 3");
+        // } else {console.log("Số không chia hết cho 2 và 3")}
+        
+        // Bai 3
+        // let score = 101
+        // if (score <= 100 & score >= 90) {
+        //     console.log("A");
+        // } else if (score <= 89 & score >= 80) {
+        //     console.log("B")
+        // } else if (score <= 79 & score >= 70) {
+        //     console.log("C")
+        // } else if (score <= 69 & score >= 60) {
+        //     console.log("D")
+        // } else if (score < 60) {
+        //     console.log("F")
+        // } else {console.log("Invalid score")}
+
+        // Bai 4
+
+        // Bai 5
+        // let year = 2024
+        // if (year % 4 == 0 && year % 100 !== 0) {
+        //     console.log(year + " là năm nhuận");
+        // } else {console.log(year + " không phải năm nhuận");}
+
+        // Bai 6
+        // list = [999, 20 , 60, 2, 10]
+        // let min = list.shift();
+        // for (let i = 0; i < list.length - 1; i++) {
+        //     if (min > list[i]) {
+        //         min = list[i];
+        //     };
+        // };
+        // console.log("Số nhỏ nhất là "+ min)
+
+        // list = [999, 20 , 60, 2, 10]
+        // let max = list.shift();
+        // console.log(max, list)
+        // for (let j = 0; j < list.length - 1; j++) {
+        //     if (max < list[j]) {
+        //         max = list[j];
+        //         console.log( j, list[j])
+        //     };
+        // };
+        // console.log("Số lớn nhất là "+ max)
+
+        // Bai 7
+        // let sum_of_even = 0
+        // let sum_of_odd = 0
+        // for (let i = 0; i <= 100; i++) {
+        //     if (i % 2 == 0 ) {
+        //         sum_of_even = sum_of_even + i;
+        //     } else if (i % 2 == 1) {
+        //         sum_of_odd = sum_of_odd + i;
+        //     }
+        // };
+        // console.log("Tổng số chẵn là " + sum_of_even);
+        // console.log("Tổng số lẻ là " + sum_of_odd);
+
+        // Bai 8
+        // let arr = "appleaaaa"
+        // let number_of_a = 0
+
+        // for (let i = 0; i < arr.length; i++) {
+        //     if (arr[i] === "a" ) {
+        //         number_of_a = number_of_a + 1;
+        //     };
+        // }
+        // console.log("số lần xuất hiện a là", number_of_a)
+
+        // Bai 9
+        let hour = new Date().getHours();
+        console.log(hour, "hour")
+        switch (hour) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8: console.log("Good morning");
+            break;
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17: console.log("Good afternoon");
+            break;
+        }
+    </script>
+</body>
+</html>

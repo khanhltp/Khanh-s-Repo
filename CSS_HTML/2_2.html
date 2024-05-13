@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+<body>
+    <form action="xuly.form.php" method="get">
+        <h1>Thông Tin Cá Nhân</h1>
+        <label for="fullname">Họ Và Tên:</label>
+        <input type="text" name="fullname" id="fullname">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        <br>
+        <label for="password">Mật Khẩu:</label>
+        <input type="password" name="password" id="password">
+        <br>
+        <label for="date_of_birth">Ngày Sinh:</label>
+        <input type="date" name="date_of_birth" id="date_of_birth">
+        <br>
+        <label for="gender">Giới Tính:</label>
+        <select name="gender" id="gender">
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+        </select>
+        <br>
+        <label for="introduction">Giới Thiệu:</label>
+        <textarea name="introduction" id="introduction" cols="25" rows="5"></textarea>
+        <br>
+        <label for="subscribe">Đăng Ký Nhận Tin:</label>
+        <input type="checkbox" name="subscribe" id="subscribe">
+        <br>
+        <button>Gửi</button>
+    </form>
+</body>
+</html>

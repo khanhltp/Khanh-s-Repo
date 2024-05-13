@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra tam giác</title>
+</head>
+
+<body>
+    <!-- Tạo form nhập vào độ dài 3 cạnh tam giác, bấm nút kiểm tra hiển thị:
+- Không phải tam giác
+- Tam giác
+- Tam giác cân
+- Tam giác đều
+- Tam giác vuông
+- Tam giác vuông can
+-->
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        div {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 100px;
+        }
+        #result {
+            text-align: center;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        
+    </style>
+
+    <div>
+        <p>Nhập độ dài 3 cạnh tam giác</p>
+    </div>
+    
+    <div>
+        <label for="">A</label>
+        <input id="a" type="number">
+    </div>
+    <div>
+        <label for="">B</label>
+        <input id="b" type="number">
+    </div>
+    <div>
+        <label for="">C</label>
+        <input id="c" type="number">
+    </div>
+    <div>
+        <button id="submit">Kiểm tra</button>
+    </div>
+    <div>
+        <p id="result"></p>
+    </div>
+    
+   
+
+    <script>
+        document.getElementById("submit").addEventListener('click', function () {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            let result = document.getElementById("result")
+            
+            let arr = [a, b, c];
+            // Sắp xếp độ dài các cạnh theo thứ tự từ lớn đến bé
+            arr.sort((a, b) => b - a);
+            a = arr[0], b = arr[1]; c = arr[2]
+
+            // Trong ba cạnh tam giác, tổng hai cạnh bất kỳ luôn lớn hơn cạnh còn lại:
+            if (c + b > a) {
+                if (a == b && b == c) {
+                    result.innerText = "Tam giác đều";
+                }
+                // Tam giác cân: 2 trường hợp
+                else if (a == b && b > c) {
+                    result.innerText = "Tam giác cân";
+                }
+                else if (a > b && b == c) {
+                    result.innerText = "Tam giác cân";
+                    if (b * b * 2 == a * a) {
+                        result.innerText = "Tam giác vuông cân";
+                    }
+                }
+                else if (a * a == b * b + c * c) {
+                    result.innerText = "Tam giác vuông";
+                }
+                else { 
+                    result.innerText = "Tam giác thường";
+                }
+
+            } else {
+                result.innerText = "Không phải tam giác"
+            }
+            
+        });
+
+
+
+
+
+
+
+        // Hàm tính cạnh tam giác vuông
+
+        function findPythagoreanTriples(maxSideLength) {
+            let triples = [];
+
+            // Duyệt qua các cạnh a và b
+            for (let a = 1; a <= maxSideLength; a++) {
+                for (let b = a; b <= maxSideLength; b++) {
+                    // Tính c^2
+                    let cSquared = a * a + b * b;
+
+                    // Tìm căn bậc hai của c^2
+                    let c = Math.sqrt(cSquared);
+
+                    // Kiểm tra nếu c là số nguyên và không vượt quá maxSideLength
+                    if (Number.isInteger(c) && c <= maxSideLength) {
+                        // Thêm tam giác vào mảng kết quả
+                        triples.push([a, b, c]);
+                    }
+                }
+            }
+
+            return triples;
+        }
+
+        // Tìm tam giác vuông có độ dài các cạnh là số nguyên và không vượt quá 10
+        let result = findPythagoreanTriples(30);
+
+        // In kết quả ra console
+        console.log(result);
+
+    </script>
+
+</body>
+
+</html>

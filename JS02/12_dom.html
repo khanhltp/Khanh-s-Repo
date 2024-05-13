@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <!-- <h1 id = "hello">Hello World</h1> -->
+    <!-- <img id = "img" onclick="changeImage()" src="https://cdn.pixabay.com/photo/2020/08/08/06/50/lab-puppy-5472265_960_720.png" alt=""> -->
+
+    <!-- <label for="">Username</label>
+    <input type="text" id="username" value = "khanhltp"> <br>
+    <label for="">Password</label>
+    <input type="text" id="password"> <br>
+    <button onclick="submit()">Submit</button> -->
+
+    <p>Đây là thẻ p</p>
+    <p>Đây là thẻ p</p>
+    <p>Đây là thẻ p</p>
+    <p class="a">Đây là thẻ p</p>
+    <div>
+        <p>Thẻ p trong thẻ div</p>
+        <p>Thẻ p trong thẻ div</p>
+        <p>Thẻ p trong thẻ div</p>
+        <p class="a">Thẻ p trong thẻ div</p>
+    </div>
+
+    <script>
+        let pTags = document.querySelectorAll('p');
+        for (let i of pTags) {
+            i.innerText = "Hello";
+        }
+        // console.log("abc")
+
+        let aClass = document.querySelectorAll('.a')
+        let aaClass = document.getElementsByClassName('a')
+        for (let tag of aaClass) {
+            tag.style.color = "red";
+        }
+
+        // for (let )
+
+        // let username = document.getElementById("username");
+        // let password = document.getElementById("password");
+
+        // let submit = () => {
+        //     let txtusername = username.value;
+        //     let txtpassword = password.value;
+
+        //     if (txtusername == "admin" && txtpassword == "admin") {
+        //         alert("Login success");
+        //     } else {
+        //         alert("Login fail");
+        //     }
+        // }
+
+
+
+        // let changeImage = () => {
+        //     let image = document.getElementById("img");
+        //     img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlcsNcmDcwDUcdiA0ZBvrycrKSS4LQ5FdEmku8lMPJKw&s";
+        //     img.style.with = "500px";
+        // }
+
+
+        let heading = document.getElementById('hello');
+        if (heading) {
+            heading.innerText = "Hello 2";
+            heading.textContent = "Hello 3";
+        }
+
+
+
+        class Bank {
+            constructor(accounts = []) {
+                this.accounts = accounts;
+            }
+            login(user_name, pass_word) {
+                for (let i of accounts) {
+                    if (i.pass_word == pass_word && i.email == user_name) {
+                        return i
+                    }
+                }
+                console.log("Login failed");
+            }
+            addAccount(id, name, phone, email, pass_word, balance) {
+                this.accounts.push(new Account(id, name, phone, email, pass_word, balance));
+            }
+
+            findAccountByID(id) {
+                this.accounts.find((account) => {
+                    return account.id == id
+                });
+            }
+
+            showAccountInfo(id) {
+                let account = this.accounts.findAccountByID(id);
+                console.log(`${this.id}`);
+                console.log(`${this.name}`);
+                console.log(`${this.phone}`);
+                console.log(`${this.email}`);
+                console.log(`${this.balance}`);
+                console.log(`${this.pass_word}`);
+            }
+
+            withdraw(id, withdraw_amount) {
+                let account = this.findAccountByID(id);
+                if (withdraw_amount <= account.getBalance()) {
+                    account.balance -= account;
+                    return;
+                }
+                console.log("Số dư không đủ")
+            }
+
+            deposit(id, deposit_amount) {
+                let account = this.findAccountByID(id);
+                account.balance += deposit_amount;
+            }
+
+            transfer(from_account_id, to_account_id, transfer_amount) {
+                let from_acoount = this.findAccountByID(from_account_id);
+                let to_account = this.findAccountByID(to_account_id);
+                if (transfer_amount <= from_acoount.getBalance()) {
+                    from_acoount.balance -= transfer_amount;
+                    to_account.balance -= transfer_amount;
+                    return;
+                }
+                console.log("Số dư không đủ")
+            }
+
+            logout
+        }
+
+        class Account {
+            constructor(id, name, phone, email, pass_word, balance) {
+                this.id = id;
+                this.name = name;
+                this.phone = phone;
+                this.email = email;
+                this.balance = balance;
+                this.pass_word = pass_word;
+            }
+
+            getBalance() {
+                return this.balance
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

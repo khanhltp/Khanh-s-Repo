@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương trình bậc 2</title>
+</head>
+<body>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        h3 {
+            text-align: center;
+        }
+        table {
+            margin: auto;
+        }
+        
+        input {
+            width: 80px;
+        }
+        div {
+           text-align: center;
+        }
+        
+        p {
+            font-size: small;
+            color: red;
+            font-style: italic;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        #result {
+            text-align: center;
+            font-weight: bold;
+            /* font-style: normal; */
+            color: black;
+        }
+        
+    </style>
+
+    <h3>Giải phương trình bậc 2</h3>
+    <form action="">
+        <table>
+            <tr>
+                <div>
+                    <td><label for="a">Hệ số 1</label></td>
+                    <td><input type="number" id="a" required></td>
+                </div>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p id = "a1"></p></td>
+            </tr>
+            <tr>
+                <div>
+                    <td><label for="b">Hệ số 2</label></td>
+                    <td><input type="number" id="b" required ></td>
+                </div>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p id = "b1"></p></td>
+            </tr>
+            <tr>
+                <div>
+                    <td><label for="c">Hệ số 3</label></td>
+                    <td><input type="number" id="c" required ></td>
+                </div>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p id = "c1"></p></td>
+            </tr>
+        </table>
+    </form>
+    <div><button id="button">Kết quả</button></div>
+    <div>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        
+        document.getElementById("button").addEventListener('click', function () {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            let result = document.getElementById("result");
+
+            let delta = b*b - 4*a*c;
+            console.log(delta)
+            if (delta < 0) {
+                result.innerText = "Phương trình vô nghiệm";
+            } else if (delta === 0) {
+                let x = -b/(2*a);
+                result.innerText = `Phương trình có nghiệm kép x1 = x2 = ${x}`;
+            } else if (delta > 0) {
+                let x1 = (-b + Math.sqrt(delta))/(2*a);
+                let x2 = (-b - Math.sqrt(delta))/(2*a);
+                result.innerText = `Phương trình có hai nghiệm phân biệt:\nx1 = ${x1}\nx2 = ${x2}`
+            } else {
+                result.innerText = `Chưa xác định`
+            }
+        });
+    </script>
+</body>
+</html>

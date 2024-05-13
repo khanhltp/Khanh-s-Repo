@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 5</title>
+</head>
+<body>
+    <script>
+
+        // let hour = new Date().getHours();
+        // console.log(hour, "hour")
+// let hour = 11
+
+        // if (hour < 12) {
+        //     console.log("Good morning");
+        // } if (12 <= hour < 17) {
+        //     console.log("Good afternoon");
+        // } if (17 <= hour < 23) {
+        //     console.log("Good evening");
+        // }
+
+        // for (let i = 1; i < 101; i++) {
+        //     if (i % 3 === 0) {
+        //         console.log(i);
+        //     }
+        // }
+
+        // for (let i = 1; i < 101; i++) {
+        //     if (i % 1 === 0 && i % i === 0) {
+        //         console.log(i);
+        //     }
+        // }
+             
+        // let status = 5
+
+        // switch (status) {
+        //     case 1:
+        //         console.log("Published");
+        //         break;
+        //     case 2:
+        //         console.log("Deleted");
+        //         break;
+        //     case 3:
+        //         console.log("Draft");
+        //         break;
+        //     case 4:
+        //         console.log("In review");
+        //         break;
+        //     default:
+        //         console.log("Status is valid");
+        // }
+
+        
+        //     if (status === 1) {
+        //         console.log("Published");
+        //     } else if (status === 2) {
+        //         console.log("Deleted");
+        //     } else if (status === 3) {
+        //         console.log("Draft");
+        //     } else if (status === 4) {
+        //         console.log ("In review")
+        //     } else {
+        //         console.log("Status is valid");
+        //     }            
+
+        let month = 3
+
+        if (month === 2) {
+            console.log("28 ngày");
+        } else if (month >= 1 && month <= 7 && month % 2 === 0 ) {
+            console.log("30 ngày");
+        } else if (month >= 1 && month <= 7 && month % 2 === 1) {
+            console.log("31 ngày");
+        } else if (month > 7 && month <= 12 && month % 2 === 0) {
+            console.log("31 ngày");
+        } else if (month > 7 && month <= 12 && month % 2 === 1) {
+            console.log("30 ngày");
+        } else {console.log("Invalid")
+        }
+
+        switch (month) {
+            case 1:
+                console.log("31 ngày");
+                break;
+            case 3:
+                console.log("31 ngày");
+                break;
+            case 5:
+                console.log("31 ngày");
+                break;
+            case 7:
+                console.log("31 ngày");
+                break;
+            case 8:
+                console.log("31 ngày");
+                break;
+            case 10:
+                console.log("31 ngày");
+                break;
+            case 12:
+                console.log("31 ngày");
+                break;
+            case 2:
+                console.log("28 ngày");
+                break;
+            case 4:
+                console.log("30 ngày");
+                break;
+            case 6:
+                console.log("30 ngày");
+                break;
+            case 9:
+                console.log("30 ngày");
+                break;
+            case 11:
+                console.log("30 ngày");
+                break;
+            default:
+                console.log("Invalid month")
+        }
+
+
+        
+    </script>
+</body>
+</html>

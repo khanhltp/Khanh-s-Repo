@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Tạo lớp Task:
+        // Tạo một lớp Task với các thuộc tính như id, title, description, dueDate, assignedTo, và status.
+        class Task {
+            constructor(id, title, description, duedate, assigned_to, status) {
+                this.id = id;
+                this.title = title;
+                this.description = description;
+                this.duedate = duedate;
+                this.assigned_to = assigned_to;
+                this.status = status;
+            }
+            // Đảm bảo rằng dueDate có định dạng ngày tháng hợp lệ, và status có thể là "todo", "inProgress" hoặc "done".
+            validateStatus() {
+                if (this.status !== "To do" && this.status !== "Doing" && this.status !== "Done") {
+                    throw "Invalid status";
+                } else {
+                    console.log("Valid status")
+                }
+            }
+            // Viết các phương thức để cập nhật trạng thái status và hiển thị thông tin về công việc.
+            updateStatus(status) {
+                this.status = status;
+            }
+            showTaskDetail() {
+                console.log(`id: ${this.id}`)
+                console.log(`title: ${this.title}`)
+                console.log(`description: ${this.description}`)
+                console.log(`duedate: ${this.duedate}`)
+                // thêm ?. để user = null thì không báo lỗi (báo undefined)
+                console.log(`assigned_to: ${this.assigned_to?.name}`)
+                console.log(`status: ${this.status}`)
+            }
+            assignUser(user) {
+                this.assigned_to = user;
+            }
+        }
+
+
+        // Tạo lớp User:
+        // Tạo một lớp User với các thuộc tính như id, name, và email.
+        class User {
+            constructor(id, name, email) {
+                this.id = id;
+                this.name = name;
+                this.email = email;
+            }
+            // Viết phương thức để hiển thị thông tin người dùng.
+            showUserDetail() {
+                console.log(`id: ${this.id}`);
+                console.log(`name: ${this.name}`);
+                console.log(`email: ${this.email}`);
+            }
+        }
+
+        // Tạo lớp Project:
+        // Tạo lớp Project với các thuộc tính như id, title, description, tasks (một mảng chứa các công việc).
+        class Project {
+            constructor(id, title, description, tasks = []) {
+                this.id = id;
+                this.title = title;
+                this.description = description;
+                this.tasks = tasks;
+            }
+            // Viết phương thức để thêm/xóa công việc từ dự án, hiển thị thông tin về dự án, và tính tổng số công việc theo trạng thái.
+            addTask(task) {
+                this.tasks.push(task);
+            }
+            getTaskByID(task_id) {
+                return this.tasks.find((task) => {
+                    return task.id == task_id;
+                });
+            }
+            removeTask(task_id) {
+                for (let i in this.tasks) {
+                    if (this.tasks[i].id == task_id) {
+                        this.tasks.splice(i, 1);
+                    }
+                }
+                return this.tasks;
+            }
+            showProjectDetail() {
+                console.log(`id: ${this.id}`);
+                console.log(`title: ${this.title}`);
+                console.log(`description: ${this.description}`);
+                // console.log(`tasks: ${this.tasks}`);
+                console.log(`Tổng công việc: ${this.tasks.length}`)
+                console.log("----------------------")
+                for (let task of this.tasks) {
+                    task.showTaskDetail()
+                    // console.log("----------");
+                }
+            }
+            countTaskByStatus(status) {
+                let count = 0;
+                for (let i in this.tasks) {
+                    if (this.tasks[i].status === status) {
+                        count++;
+                    }
+                }
+                console.log(count)
+            }
+        }
+
+        // Quản lý các dự án và người dùng:
+        // Tạo một danh sách dự án và danh sách người dùng.
+        // Cho phép thêm/xóa dự án và người dùng, và liên kết công việc với dự án và người dùng.
+        // Viết các phương thức để tìm kiếm dự án dựa trên tên hoặc trạng thái công việc.
+        // Mô phỏng các tác vụ quản lý dự án:
+        // Cho phép người dùng thêm/xóa dự án, công việc và người dùng, và thực hiện các tác vụ như cập nhật trạng thái công việc và hiển thị thông tin.
+
+        class ProjectSoftware {
+            constructor(projects = [], users = []) {
+                this.projects = projects;
+                this.users = users;
+            }
+            addProject(project_id) {
+                this.projects.push(project_id);
+            }
+            getProjectByID(project_id) {
+                return this.projects.find((project) => {
+                    return project.id == project_id;
+                });
+            }
+            removeProject(project_id) {
+                for (let i in this.projects) {
+                    if(this.projects[i].id == project_id) {
+                        this.projects.splice(i,1);
+                    }
+                }
+            }
+
+            addUser(user_id) {
+                this.users.push(user_id);
+            }
+            getUserByID(user_id) {
+                return this.users.find((user) => {
+                    return user.id == user_id;
+                });
+            }
+            removeUser(user_id) {
+                for (let i in this.users) {
+                    if(this.users[i].id == user_id) {
+                        this.users.splice(i,1);
+                    }
+                }
+            }
+            assign(user, task) {
+                task.assign(user);
+            }
+        }
+        
+        let user01 = new User(1, "khanhltp01", "khanhltp01@gmail.com")
+        let user02 = new User(2, "khanhltp02", "khanhltp02@gmail.com")
+        let user03 = new User(3, "khanhltp03", "khanhltp03@gmail.com")
+        let user04 = new User(4, "khanhltp04", "khanhltp04@gmail.com")
+
+        // user01.showUserDetail()
+        // user02.showUserDetail()
+        // user03.showUserDetail()
+        // user04.showUserDetail()
+
+        let task01 = new Task(1, "Học javascript 01", "Khóa học javascript tại trung tâm IT Learn", "01/05/2024", null, "To do")
+        let task02 = new Task(2, "Học javascript 02", "Khóa học javascript tại trung tâm IT Learn", "01/05/2024", user02, "Doing")
+        let task03 = new Task(3, "Học javascript 03", "Khóa học javascript tại trung tâm IT Learn", "01/05/2024", user03, "Done")
+        // task01.validateStatus()
+        // task02.validateStatus()
+        // task03.validateStatus()
+        // task01.showTaskDetail()
+        // task02.showTaskDetail()
+        // task03.showTaskDetail()
+        // task02.updateStatus("To do")
+        // task02.showTaskDetail()
+
+        let project01 = new Project(1, "Project01", "Description of Project01")
+        project01.addTask(task01)
+        project01.addTask(task02)
+        project01.addTask(task03)
+        // project01.showProjectDetail()
+        // project01.removeTask(1)
+        
+        // console.log("--------------------\nRemove task\n--------------------")
+        // project01.showProjectDetail()
+        project01.getTaskByID(2).updateStatus("Done")
+        project01.countTaskByStatus("Done")
+
+        let projectsoftware01 = new ProjectSoftware()
+        // console.log(projectsoftware01)
+        projectsoftware01.addProject(1)
+        // console.log(projectsoftware01)
+        projectsoftware01.getProjectByID(1)
+
+        
+
+    </script>
+</body>
+
+</html>

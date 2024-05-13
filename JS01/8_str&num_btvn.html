@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String and number</title>
+</head>
+<body>
+    <script>
+        // 1. Đảo ngược chuỗi
+        let str = "Viết một hàm nhận vào một chuỗi và trả về chuỗi đảo ngược của nó"
+        
+        function reverse (str) {
+            let newStr = ""
+            for (let i = str.length - 1; i >= 0 ; i--) { 
+                newStr += str[i];
+            }
+            return newStr;
+        }
+
+        // console.log(reverse(str))
+
+        // 2. Đếm số lần xuất hiện của một ký tự trong chuỗi
+
+        function count (str, a) {
+            let dem = 0
+            for (let i = 0; i < str.length; i++) {
+                if (a === str[i]) {
+                    dem++
+                }
+            }
+            return dem
+        }
+
+        // console.log(count(str, "m"))
+
+
+        // 3. Chuyển đổi chuỗi thành dạng title case
+        
+        function toTitleCase (str) {
+            // Mảng mới có tự đầu luôn viết hoa
+            let output = [str[0].toUpperCase()] 
+            for (let i = 1; i < str.length; i++) {
+                // Viết hoa ký tự trước dấu cách và push vào mảng mới
+                if (str[i - 1] == " ") {
+                    output.push(str[i].toUpperCase())
+                } else {
+                    // Push các ký tự còn lại vào mảng mới
+                    output.push(str[i])
+                }
+            }
+            // Gộp các phần tử trong mảng thành chuỗi
+            return output.join("")
+        }
+
+        // console.log(toTitleCase(str))
+
+        // 4. Kiểm tra chuỗi đối xứng
+        function check_doi_xung (str) {
+            let doi_xung = true
+            if (str.length % 2 === 0) {
+                let max_index = (str.length) / 2
+                for (let i = 0; i < max_index; i++) {
+                    if (str[i] !== str[str.length - i - 1]) {
+                        doi_xung = false;
+                        break;
+                    }
+                }
+            } else {
+                let max_index = (str.length - 1) / 2
+                for (let i = 0; i < max_index; i++) {
+                    if (str[i] !== str[str.length - i - 1]) {
+                        doi_xung = false;
+                        break;
+                    }
+                }
+            }
+            return doi_xung
+        }
+
+        // let str_check_doi_xung = "racecar"
+        // console.log(check_doi_xung(str_check_doi_xung))
+
+        // 5. Tách chuỗi thành mảng các từ
+
+        function cutString (str) {
+            let output = str.split(" ")
+            return output
+        }
+
+        // console.log(cutString(str))
+
+        // 6. Loại bỏ ký tự trùng lặp, giữ lại một ký tự duy nhất của mỗi loại
+        function delete_duplicate_character (str) {
+            let character = []
+            for (let i = 0; i < str.length; i++) {
+                if (character.includes(str[i]) == false) {
+                    character.push(str[i])
+                }
+            }
+            return character.join("")
+        }
+
+        // console.log(delete_duplicate_character(str))
+
+        // 7. Tìm từ dài nhất trong chuỗi
+
+        // Hàm trả về một từ dài nhất đầu tiên trong chuỗi
+        function findLongestWord (str) {
+            // Chia chuỗi
+            let split_str = str.split(" ")
+            // Duyệt từng từ, lấy ra từ dài nhất
+            let longest_word = split_str[0]
+            for (let i = 1; i < split_str.length; i++) {
+                if (split_str[i].length > longest_word.length) {
+                    longest_word = split_str[i];
+                }
+            }
+            return longest_word
+        }
+        // console.log(findLongestWord(str))
+
+        // Hàm trả về tất cả các từ dài nhất trong chuỗi
+        function findLongestWords (str) {
+            // Chia chuỗi thành mảng
+            let split_str = str.split(" ")
+            // Sắp xếp các phần tử trong mảng: các từ dài nhất ở đầu mảng
+            let arr = split_str.sort((a,b) => b.length-a.length)
+            // Push từ đầu tiên (luôn là từ dài nhất) vào mảng mới
+            let longest_word = []
+            longest_word.push(arr[0])
+            // Push các từ có độ dài bằng từ đầu tiên vào mảng mới
+            for (let i = 1; i < arr.length; i++) {
+                let isLongest = true
+                if (arr[0].length == arr[i].length) {
+                    longest_word.push(arr[i]);
+                    isLongest = true;
+                } else {
+                    isLongest = false;
+                    break;
+                }
+            }
+            return longest_word        
+        }
+
+        console.log(findLongestWords(str))
+
+        // 8. Tính số Fibonacci thứ n
+        function fibonacci (n) {
+            let arr = [0,1];
+            for (let i = 2; i <= n; i++) {
+                arr[i] = arr[i - 1] + arr[i - 2];
+                console.log(arr[i])
+            }
+            return arr[n];
+        }
+        // console.log(fibonacci(14))
+
+        // 9. Máy tính BMI (Chỉ số khối cơ thể)
+        function WHO (weight, height) {
+            let BMI = weight / (height*height)
+            let output = ""
+            if (BMI <= 0) {
+                output = "Invalid"
+            } else if (BMI < 18.5) {
+                output = "Gầy"
+            } else if (BMI <= 24.9) {
+                output = "Bình thường"
+            } else if (BMI <= 29.9) {
+                output = "Tiền béo phì"
+            } else if (BMI <= 34.9) {
+                output = "Béo phì độ 1"
+            } else if (BMI <= 39.9) {
+                output = "Béo phì độ 2"
+            } else {
+                output = "Béo phì độ 3"
+            }
+            return output
+        }
+        // console.log(WHO(42, 1.5))
+
+        function IDI_WPRO (weight,height) {
+            let BMI = weight / (height*height)
+            let output = ""
+            if (BMI <= 0) {
+                output = "Invalid"
+            } else if (BMI < 18.5) {
+                output = "Gầy"
+            } else if (BMI <= 22.9) {
+                output = "Bình thường"
+            } else if (BMI <= 24.9) {
+                output = "Tiền béo phì"
+            } else if (BMI <= 29.9) {
+                output = "Béo phì độ 1"
+            } else {
+                output = "Béo phì độ 2"
+            }
+            return output
+        }
+        // console.log(IDI_WPRO(42, 1.5))
+
+        function calculateBMI (weight,height) {
+            let BMI_WHO = WHO (weight,height)
+            let BMI_IDI_PRO = IDI_WPRO (weight,height)
+            return ["BMI_WHO = " + BMI_WHO, "BMI_IDI_PRO = " + BMI_IDI_PRO]
+        }
+        // console.log(calculateBMI(42, 1.5))
+
+        // 10. Bài tập về lãi kép
+
+        function tinh_lai_kep (tien_goc, lai_suat, so_nam) {
+            let tong = 0;
+            for (let i = 1; i <= so_nam; i++) {
+                tong = tien_goc + tien_goc * (lai_suat / 100);
+                tien_goc = tong;
+            }
+            return tong
+        }
+
+        console.log(tinh_lai_kep(1000, 5, 10))
+
+
+    </script>
+</body>
+</html>

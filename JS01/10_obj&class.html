@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student = {
+            name: "Khanh",
+            age: 20,
+            grade1: [10, 10, 10],
+            grade2: [1, 1, 1],
+
+        }
+
+        // for (let key in student) {
+        //     // console.log(key)
+        //     // console.log(student[key])
+        // }
+
+        const car = {
+            brand: "Toyota",
+            model: "Camry",
+            startEngine: function () {
+                console.log(`${this.brand} Engine start`);
+                console.log(this.model + " Engine start");
+            },
+            checkSystem: function () {
+                console.log(this.model + " system check");
+            },
+            start: function() {
+                this.startEngine();
+                this.checkSystem();
+            }
+            }
+        // car.start()
+
+        function createCar (brand, model) {
+            this.brand = brand;
+            this.model = model;
+            this.startEngine = function () {
+                console.log(`${this.brand} Engine start`);
+                console.log(this.model + " Engine start");
+            },
+            this.checkSystem = function () {
+                console.log(this.model + " system check");
+            },
+            this.start = function() {
+                this.startEngine();
+                this.checkSystem();
+            }
+        }
+
+        // let car1 = new createCar("abc", "123")
+        // car1.start();
+        // console.log(car1)
+
+        // let car2 = new createCar("xyz", "456")
+        // car2.startEngine()
+        // car2.checkSystem()
+        // car2.start()
+
+        class Person {
+            constructor (name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            greet() {
+                console.log("Hello my name is " + this.name + " and I am " + this.age + " years old.")
+                console.log(`hello my name is ${this.name} and I am ${this.age} years old`)
+            }
+        }
+
+        let person1 = new Person ("Khanh", 24)
+        let person2 = new Person ("abc", 123)
+        // console.log(person1)
+        // console.log(person1.greet())
+        // console.log(person2.greet())
+
+        class Car {
+            constructor (brand, model) {
+            this.brand = brand;
+            this.model = model;
+            }
+            startEngine () {
+                console.log(this.model + " Engine start");
+            }
+            checkSystem () {
+                console.log(this.model + " system check");
+            }
+            start () {
+                this.startEngine();
+                this.checkSystem();
+            }
+        }
+
+        // let car3 = new Car ("car3", "car3 model")
+        // console.log(car3)
+        // console.log(car3.start())
+        // console.log(car3.checkSystem())
+
+        class Calculator {
+            static add(a, b) {
+                return a + b;
+            }
+
+            static subtract (a, b) {
+                return a - b;
+            }
+        }
+
+        // let calc = new Calculator();
+        // console.log(calc.add(10,10));
+        // console.log(calc.subtract(10,10));
+        // console.log(Calculator.add(10,20));
+        // console.log(Calculator.subtract(10,20));
+
+        class Circle {
+            constructor(radius) {
+                this.radius = radius;
+            }
+        
+        get area() {
+            return Math.PI * this.radius ** 2;
+            }
+        }
+
+        // let circle = new Circle(5);
+        // console.log(circle)
+        // console.log(circle.area);
+        // console.log(circle.area());
+
+        class Person1 {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+
+            set fullname(fullname) {
+                let split_name = fullname.split(" ");
+                this.lastname = split_name.pop();
+                this.firstname = split_name.join(" ");
+            }
+
+            get fullname() {
+                return this.firstname + " " + this.lastname
+            }
+        }
+
+        let abc = new Person1 ("Phương", "Khanh")
+        console.log(abc)
+
+        // class Student1 extends Person1 {
+        //     study () {
+        //         console.log(`${this.firstname} ${this.lastname} is studying`)
+        //     }
+        // }
+
+        // let person3 = new Student1 ("Khanh", "Lưu");
+        // console.log(person3)
+        // person3.study();
+
+
+
+    
+
+
+
+
+
+            
+
+
+    </script>
+</body>
+</html>
