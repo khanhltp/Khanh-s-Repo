@@ -5,9 +5,7 @@ class Question {
         this.correct_answer = correct_answer;
     }
 }
-
-
-    let questions =
+let questions =
     [
         new Question(
             "Ai là tác giả của cuốn tiểu thuyết \"Chiến tranh và hòa bình\"?",
@@ -222,37 +220,83 @@ class Question {
             ],
             "C) Lotus 1 - 2 - 3"
         )
-    ]        
-    class Program {
-        static getQuestion() {
-            let i = 0;
-            i++;
-            return questions[i]
+    ]
+class Program {
+    static i = 0;
+    static getQuestion() {
+        return questions[Program.i]
+    }
+    static printQuestion() {
+        let currentQ = Program.getQuestion();
+        let question = document.getElementById('question');
+        question.innerHTML = currentQ.question;
+
+        let i = 1;
+        for (let current_answer of currentQ.answers) {
+            let answer = document.getElementById(`answer` + i++);
+            answer.innerHTML = current_answer;
         }
-        static printQuestion() {
-            let currentQ = Program.getQuestion();
-            let question = document.getElementById('question');
-            question.innerHTML = currentQ.question;
-            
-            let i = 1;
-            for (let current_answer of currentQ.answers) {
-                let answer = document.getElementById(`answer`+ i++);
-                answer.innerHTML = current_answer;
-            }
-        }    
-        static run() {
-            Program.printQuestion();
-        }
+    }
+    static getNextQuetstion() {
+        Program.i++;
+        Program.printQuestion()
+    }
+
+    static resetGame() {
+        Program.i = 0;
+        Program.printQuestion();
+    }
+    static run() {
+        Program.printQuestion();
+    }
 }
 
+document.getElementById('start').addEventListener('click', Program.printQuestion());
 
-Program.run();
 
 let answers = document.querySelectorAll('.answers')
-for (let answer of answers) {
-    answer.addEventListener('click', function () {
-        console.log(answer.innerHTML)
-    })
+for (let user_answer of answers) {
+    user_answer.addEventListener('click', function () {
+        Animation.chooseAnswer(user_answer);
+        if (user_answer.innerHTML == Program.getQuestion().correct_answer) {
+            Animation.highlightCorrectAnswer(user_answer)
+            Animation.resetColor(user_answer);
+            setTimeout(Program.getNextQuetstion, 2000);
+            console.log(Program.i)
+        }
+        if (user_answer.innerHTML !== Program.getQuestion().correct_answer) {
+            for (let correct_answer of answers) {
+                if (correct_answer.innerHTML == Program.getQuestion().correct_answer) {
+                    Animation.highlightCorrectAnswer(correct_answer)
+                    setTimeout(Animation.resetColor(user_answer), 1000)
+                   
+                    console.log("uar alo reset cham thoi")
+                    setTimeout(Program.resetGame, 2000)
+                }
+            }
+        }
+    }
+    )
+}
+class Animation {
+    static chooseAnswer(user_answer) {
+        user_answer.style.background = 'rgba(255,171,0,1)';
+    }
+    static highlightCorrectAnswer(correct_answer) {
+        setTimeout(function () {
+            correct_answer.style.animation = 'right 0.5s 2';
+        }, 1000)
+
+    }
+    static resetColor(user_answer) {
+        setTimeout(function() {
+            user_answer.style.background = 'linear-gradient(rgba(5, 0, 82, 1) 22%, rgba(9, 9, 121, 1) 29%, rgba(0, 116, 255, 1) 100%)'
+        }, 1000)
+    }
+    static pointColor
 }
 
-            
+
+
+
+

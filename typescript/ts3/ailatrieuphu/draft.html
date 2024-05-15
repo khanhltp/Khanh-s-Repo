@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nút Nhấp Nháy</title>
+  <style>
+    /* Định nghĩa keyframes cho hiệu ứng nhấp nháy */
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Áp dụng hiệu ứng nhấp nháy cho nút */
+    .blinking-button {
+      animation: blink 1s infinite;
+      background-color: #ff5733; /* Màu nền của nút */
+      color: white; /* Màu chữ */
+      border: none; /* Bỏ đường viền */
+      padding: 10px 20px; /* Khoảng cách nội dung nút */
+      font-size: 16px; /* Kích thước chữ */
+      cursor: pointer; /* Thay đổi con trỏ chuột khi hover */
+      border-radius: 5px; /* Bo tròn góc nút */
+    }
+
+    /* Tùy chọn: Thêm hiệu ứng khi hover vào nút */
+    .blinking-button:hover {
+      background-color: #c70039;
+    }
+  </style>
+</head>
+<body>
+  <button class="blinking-button">Nhấp Nháy</button>
+</body>
+</html>
